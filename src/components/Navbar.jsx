@@ -41,13 +41,15 @@ const Navbar = () => {
             </Link>
 
             {/* Navigation Links */}
-            <div className="hidden md:flex items-center gap-1 bg-surface/50 p-1 rounded-lg border border-border">
+            <div className="hidden md:flex items-center gap-1 bg-surface/50 p-1 rounded-lg border border-border overflow-x-auto">
                 <NavLink to="/dashboard" active={isActive('/dashboard')}>Hub</NavLink>
                 <NavLink to="/quests" active={isActive('/quests')}>Assignments</NavLink>
                 <NavLink to="/results" active={isActive('/results')}>Analytics</NavLink>
                 <NavLink to="/placement" active={isActive('/placement')}>Placement</NavLink>
                 <NavLink to="/planner" active={isActive('/planner')}>Planner</NavLink>
                 <NavLink to="/interventions" active={isActive('/interventions')}>Support</NavLink>
+                <div className="w-px h-6 bg-border mx-1" />
+                <NavLink to="/architecture" active={isActive('/architecture')}><span className="text-purple-500">Docs</span></NavLink>
             </div>
 
             {/* User Stats / Right Side */}

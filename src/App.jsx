@@ -5,6 +5,7 @@ import { useAppState } from './state/appState';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Onboarding from './pages/Onboarding';
+import Architecture from './pages/Architecture';
 
 // === Student Pages ===
 import Dashboard from './pages/Dashboard';
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/" element={<Landing />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/architecture" element={<Architecture />} />
 
                 {/* ======= Student Routes ======= */}
                 <Route path="/dashboard" element={<RoleGuard allowedRoles={['student']}><Dashboard /></RoleGuard>} />

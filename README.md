@@ -37,8 +37,11 @@ cp .env.example .env
 docker compose up -d
 ```
 
-## Documentation
+## Documentation & Screenshots
 For complete architectural overviews, database schemas, and deployment instructions, please refer to the Master Documentation:
-- [Platform Architecture & Design](docs/platform-architecture.md)
-- [AWS Deployment Guide](docs/aws-deployment-guide.md)
-- [Disaster Recovery Plan](docs/disaster-recovery.md)
+- [Platform Architecture & Design](docs/02_System_Architecture.md)
+- [AWS Deployment Guide](docs/03_Deployment_Architecture.md)
+- [Disaster Recovery Plan](docs/09_Disaster_Recovery_Plan.md)
+
+**View all High-Fidelity Screenshots of the application and infrastructure here:**
+👉 [EduPulse Image Gallery](./images/)
