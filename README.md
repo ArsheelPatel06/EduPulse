@@ -44,4 +44,19 @@ For complete architectural overviews, database schemas, and deployment instructi
 - [Disaster Recovery Plan](docs/09_Disaster_Recovery_Plan.md)
 
 **View all High-Fidelity Screenshots of the application and infrastructure here:**
-👉 [EduPulse Image Gallery](./images/)
+
+<details>
+<summary><b>📸 Click to Expand Image Gallery</b></summary>
+
+### Platform Dashboards & Features
+<img src="images/Screenshot 2026-06-20 at 12.08.48 am.png" width="400"/> <img src="images/Screenshot 2026-06-20 at 12.08.52 am.png" width="400"/>
+<img src="images/Screenshot 2026-06-20 at 12.08.56 am.png" width="400"/> <img src="images/Screenshot 2026-06-20 at 12.09.01 am.png" width="400"/>
+<img src="images/Screenshot 2026-06-20 at 12.09.05 am.png" width="400"/> <img src="images/Screenshot 2026-06-20 at 12.09.08 am.png" width="400"/>
+<img src="images/Screenshot 2026-06-20 at 12.09.18 am.png" width="400"/> <img src="images/Screenshot 2026-06-20 at 12.09.23 am.png" width="400"/>
+
+### Analytics & Infrastructure
+<img src="images/Screenshot 2026-06-20 at 12.10.01 am.png" width="400"/> <img src="images/Screenshot 2026-06-20 at 12.10.12 am.png" width="400"/>
+<img src="images/Screenshot 2026-06-20 at 12.10.14 am.png" width="400"/> <img src="images/Screenshot 2026-06-20 at 12.10.21 am.png" width="400"/>
+
+*(See the `/images` directory for the full suite of 37 high-fidelity screenshots)*
+</details>
