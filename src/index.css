@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+
+    /* Design Tokens - Light */
+    --bg-base: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-panel: #f1f5f9;
+    --border-color: #e2e8f0;
+    --text-main: #020617;
+    --text-muted: #64748b;
+}
+
+.dark {
+    --bg-base: #050505;
+    --bg-surface: #0c0c0e;
+    --bg-panel: #111113;
+    --border-color: #1f2937;
+    --text-main: rgba(255, 255, 255, 0.9);
+    --text-muted: #94a3b8;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    @apply antialiased;
+}
+
+/* Custom Scrollbar - Game Theme */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-slate-500/50 transition-colors;
+}
+
+/* Game UI Utilities */
+.btn-tactile {
+    @apply border-2 font-black rounded-xl transition-all active:translate-y-[2px] active:brightness-95 select-none uppercase tracking-widest text-xs;
+}
+
+.card-tactile {
+    @apply bg-surface border-2 border-border rounded-2xl transition-all hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/5;
+}
+
+/* Utility to remove focus ring for cleaner game UI */
+.no-focus-ring:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+@layer base {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply tracking-tight;
+    }
+}

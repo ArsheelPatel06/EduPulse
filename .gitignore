@@ -1,0 +1,45 @@
+# Environments
+.env
+.env.local
+.env.*.local
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+.venv/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.tfstate.lock.info
+crash.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vault (Local test files)
+/security/vault/file/
+keys.txt
+
+# Logs
+*.log

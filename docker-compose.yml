@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+  # === Frontend (React + Vite served via Nginx) ===
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: edupulse-frontend
+    ports:
+      - "5174:80"
+    depends_on:
+      - backend
+    networks:
+      - edupulse-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # === Backend (FastAPI + Uvicorn) ===
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: edupulse-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-edupulse_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-edupulse_password}
+      - POSTGRES_DB=${POSTGRES_DB:-edupulse}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-edupulse_user}:${POSTGRES_PASSWORD:-edupulse_password}@postgres:5432/${POSTGRES_DB:-edupulse}
+      - REDIS_URL=redis://redis:6379/0
+      - FRONTEND_URL=http://localhost:5174
+      - JWT_SECRET=${JWT_SECRET:-dev_secret_key_change_me}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - edupulse-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # === PostgreSQL Database ===
+  postgres:
+    image: postgres:15-alpine
+    container_name: edupulse-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-edupulse_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-edupulse_password}
+      - POSTGRES_DB=${POSTGRES_DB:-edupulse}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - edupulse-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-edupulse_user} -d ${POSTGRES_DB:-edupulse}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # === Redis Cache ===
+  redis:
+    image: redis:7-alpine
+    container_name: edupulse-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - edupulse-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  edupulse-network:
+    driver: bridge

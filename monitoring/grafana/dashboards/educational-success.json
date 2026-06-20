@@ -1,0 +1,26 @@
+{
+  "title": "Educational Success Dashboard",
+  "timezone": "browser",
+  "panels": [
+    {
+      "title": "Academic Score Average",
+      "type": "gauge",
+      "targets": [{"expr": "avg(academic_score)"}]
+    },
+    {
+      "title": "Engagement Score Average",
+      "type": "gauge",
+      "targets": [{"expr": "avg(engagement_score)"}]
+    },
+    {
+      "title": "Course Completion Rate",
+      "type": "gauge",
+      "targets": [{"expr": "sum(courses_completed) / sum(courses_enrolled)"}]
+    },
+    {
+      "title": "Outcome Achievement",
+      "type": "timeseries",
+      "targets": [{"expr": "outcome_achievement_percentage"}]
+    }
+  ]
+}

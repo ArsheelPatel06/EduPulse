@@ -1,0 +1,36 @@
+{
+  "title": "Student Analytics Dashboard",
+  "timezone": "browser",
+  "panels": [
+    {
+      "title": "Active Students",
+      "type": "stat",
+      "targets": [{"expr": "active_students"}]
+    },
+    {
+      "title": "Placement Readiness Average",
+      "type": "gauge",
+      "targets": [{"expr": "placement_readiness_average"}]
+    },
+    {
+      "title": "High Risk Students",
+      "type": "stat",
+      "targets": [{"expr": "high_risk_students"}]
+    },
+    {
+      "title": "Active Interventions",
+      "type": "timeseries",
+      "targets": [{"expr": "active_interventions"}]
+    },
+    {
+      "title": "Assignments Completed",
+      "type": "stat",
+      "targets": [{"expr": "assignments_completed"}]
+    },
+    {
+      "title": "Case Studies Submitted",
+      "type": "stat",
+      "targets": [{"expr": "case_studies_submitted"}]
+    }
+  ]
+}
